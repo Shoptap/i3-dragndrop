@@ -30,9 +30,11 @@
              ];
 }
 
+
 -(UIView*) mainSuperview{
     return [[[UIApplication sharedApplication] keyWindow] subviews].lastObject;
 }
+
 
 -(UIView*) viewForAccessibilityLabel:(NSString*) label{
     
@@ -50,77 +52,113 @@
 
 }
 
+
+-(CGPoint) pointForIndexPath:(NSIndexPath*) index inTableView:(UITableView*) table{
+    
+    CGRect cellRect = [table rectForRowAtIndexPath:index];
+    CGPoint centerCellPoint = CGPointCenteredInRect(cellRect);
+    UIView* superview = [self mainSuperview];
+    
+    return [superview convertPoint:centerCellPoint fromView:superview];
+}
+
+
+-(CGPoint) pointForIndexPath:(NSIndexPath*) index inCollectionView:(UICollectionView*) collection{
+    
+    // TODO
+
+}
+
+
 -(void) dragCellInTableViewWithAccessibilityLabel:(NSString*) fromLabel
                                       atIndexPath:(NSIndexPath*) from
                 toTableViewWithAccessibilityLabel:(NSString*) toLabel
                                       atIndexPath:(NSIndexPath*) to{
 
-    /** Loads table views from accessibility labels */
+    /** Load table views from accessibility labels */
     
     UITableView* toTable = (UITableView*)[self viewForAccessibilityLabel:toLabel];
     UITableView* fromTable = (UITableView*)[self viewForAccessibilityLabel:fromLabel];
     UIView* superview = [self mainSuperview];
     
     
-    /** Grab rects and points for for index paths */
+    /** Triggers a drag */
     
-    CGRect fromRect = [fromTable rectForRowAtIndexPath:from];
-    CGRect toRect = [toTable rectForRowAtIndexPath:to];
+    CGPoint fromPoint = [self pointForIndexPath:from inTableView:fromTable];
+    CGPoint toPoint = [self pointForIndexPath:to inTableView:toTable];
     
-    CGPoint fromPoint = CGPointCenteredInRect(fromRect);
-    CGPoint toPoint = CGPointCenteredInRect(toRect);
-    
-    
-    /** Translate the points into superview's coords and drag */
-    
-    CGPoint fromInSuperview = [superview convertPoint:fromPoint fromView:fromTable];
-    CGPoint toInSuperview = [superview convertPoint:toPoint fromView:toTable];
-    
-    [superview dragFromPoint:fromInSuperview toPoint:toInSuperview];
+    [superview dragFromPoint:fromPoint toPoint:toPoint];
     
 }
+
 
 -(void) dragCellInTableViewWithAccessibilityLabel:(NSString*) fromLabel
                                       atIndexPath:(NSIndexPath*) from
-                toCollectionViewWithAccessibilityLabel:(NSString*) toLabel
+           toCollectionViewWithAccessibilityLabel:(NSString*) toLabel
                                       atIndexPath:(NSIndexPath*) to{
-
-    /** Loads table/collection views from accessibility labels */
     
-    //UICollectionView* toCollection = (UICollectionView*)[self viewForAccessibilityLabel:toLabel];
-    //UITableView* fromTable = (UITableView*)[self viewForAccessibilityLabel:fromLabel];
-
-    // TODO: Implement
-
+    /** Load containers from accessibility labels */
+    
+    UICollectionView* toCollection = (UICollectionView*)[self viewForAccessibilityLabel:toLabel];
+    UITableView* fromTable = (UITableView*)[self viewForAccessibilityLabel:fromLabel];
+    UIView* superview = [self mainSuperview];
+    
+    
+    /** Triggers a drag */
+    
+    CGPoint fromPoint = [self pointForIndexPath:from inTableView:fromTable];
+    CGPoint toPoint = [self pointForIndexPath:to inCollectionView:toCollection];
+    
+    [superview dragFromPoint:fromPoint toPoint:toPoint];
+    
 }
+
 
 -(void) dragCellInCollectionViewWithAccessibilityLabel:(NSString*) fromLabel
                                            atIndexPath:(NSIndexPath*) from
                      toTableViewWithAccessibilityLabel:(NSString*) toLabel
                                            atIndexPath:(NSIndexPath*) to{
-
-    /** Loads table/collection views from accessibility labels */
     
-    //UITableView* toTable = (UITableView*)[self viewForAccessibilityLabel:toLabel];
-    //UICollectionView* fromCollection = (UICollectionView*)[self viewForAccessibilityLabel:fromLabel];
-
-    // TODO: Implement
-
+    /** Load containers from accessibility labels */
+    
+    UITableView* toTable = (UITableView*)[self viewForAccessibilityLabel:toLabel];
+    UICollectionView* fromCollection = (UICollectionView*)[self viewForAccessibilityLabel:fromLabel];
+    UIView* superview = [self mainSuperview];
+    
+    
+    /** Triggers a drag */
+    
+    CGPoint fromPoint = [self pointForIndexPath:from inCollectionView:fromCollection];
+    CGPoint toPoint = [self pointForIndexPath:to inTableView:toTable];
+    
+    [superview dragFromPoint:fromPoint toPoint:toPoint];
+    
 }
+
 
 -(void) dragCellInCollectionViewWithAccessibilityLabel:(NSString*) fromLabel
                                            atIndexPath:(NSIndexPath*) from
                 toCollectionViewWithAccessibilityLabel:(NSString*) toLabel
                                            atIndexPath:(NSIndexPath*) to{
 
-    /** Loads collection views from accessibility labels */
     
-    //UICollectionView* toCollection = (UICollectionView*)[self viewForAccessibilityLabel:toLabel];
-    //UICollectionView* fromCollection = (UICollectionView*)[self viewForAccessibilityLabel:fromLabel];
-
-    // TODO: Implement
+    /** Load collections from accessibility labels */
+    
+    UICollectionView* toCollection = (UICollectionView*)[self viewForAccessibilityLabel:toLabel];
+    UICollectionView* fromCollection = (UICollectionView*)[self viewForAccessibilityLabel:fromLabel];
+    UIView* superview = [self mainSuperview];
+    
+    
+    /** Triggers a drag */
+    
+    CGPoint fromPoint = [self pointForIndexPath:from inCollectionView:fromCollection];
+    CGPoint toPoint = [self pointForIndexPath:to inCollectionView:toCollection];
+    
+    [superview dragFromPoint:fromPoint toPoint:toPoint];
 
 }
+
+
 
 -(void) navigateToExampleCaseNumber:(NSInteger) testCaseNumber{
 
@@ -132,7 +170,7 @@
         
         [NSException raise:@"KIFUITestActor(I3DndTestAppAdditions)InvalidExampleCase"
                     format:@"Example case number %ld does not exist or is not in the text case map",
-                            testCaseNumber];
+                            (long)testCaseNumber];
     }
     
     NSString* tabButtonAccessibillityLabel = self.testCaseToAccessibillityMap[testCaseNumber];

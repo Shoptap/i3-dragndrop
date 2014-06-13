@@ -46,6 +46,20 @@
 
 
 /**
+ *  Helper method which returns the point relative to the main superview, for the
+ *  center of a given cell in a table.
+ */
+-(CGPoint) pointForIndexPath:(NSIndexPath*) index inTableView:(UITableView*) table;
+
+
+/**
+ *  Helper method which returns the point relative to the main superview, for the
+ *  center of a given cell in a collection view.
+ */
+-(CGPoint) pointForIndexPath:(NSIndexPath*) index inCollectionView:(UICollectionView*) collection;
+
+
+/**
  *  An array of the Example Cases' tab button accessabillity labels. The
  *  index of the table represents its test case number - 1, for example
  *  at index 0, there will be the accessibillity label for the tab button
