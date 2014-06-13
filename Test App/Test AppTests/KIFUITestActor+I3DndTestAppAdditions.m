@@ -65,8 +65,12 @@
 
 -(CGPoint) pointForIndexPath:(NSIndexPath*) index inCollectionView:(UICollectionView*) collection{
     
-    // TODO
-
+    UICollectionViewLayoutAttributes* attrs = [collection layoutAttributesForItemAtIndexPath:index];
+    CGPoint centerCellPoint = CGPointCenteredInRect(attrs.frame);
+    UIView* superview = [self mainSuperview];
+    
+    return [superview convertPoint:centerCellPoint fromView:superview];
+    
 }
 
 
