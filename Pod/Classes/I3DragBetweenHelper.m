@@ -649,14 +649,22 @@
         DND_LOG(@"Handle drag but we're not dragging.");
         return;
     }
-    
+
+
     /* Translate */
-    
+
     CGPoint translation = [gestureRecognizer translationInView:[self.draggingView superview]];
+
     [self.draggingView setCenter:CGPointMake([self.draggingView center].x + translation.x,
                                              [self.draggingView center].y + translation.y)];
     [gestureRecognizer setTranslation:CGPointZero inView:[self.draggingView superview]];
 
+    if ([self.delegate respondsToSelector:@selector(draggingView:atPoint:)]) {
+        CGPoint superTranslation = [gestureRecognizer translationInView:self.superview];
+
+        [self.delegate draggingView:self.draggingView atPoint:CGPointMake([self.draggingView center].x + superTranslation.x,
+                                                                          [self.draggingView center].y + superTranslation.y)];
+    }
 }
 
 
