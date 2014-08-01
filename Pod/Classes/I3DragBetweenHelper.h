@@ -111,12 +111,8 @@
 
 -(BOOL) isCellAtIndexPathDraggable:(NSIndexPath*) index inContainer:(UIView*) container;
 
-
-
-
-/* Generic view draggin handler */
-
--(void) dragginAtPoint:(CGPoint) pointIn;
+/* Generic view dragging handler */
+-(void) draggingView:(UIView *)view atPoint:(CGPoint) pointIn;
 
 
 
