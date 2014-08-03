@@ -726,7 +726,7 @@
         UIView* cell;
         NSIndexPath* index = [self determineIndexForContainer:self.srcView atPoint:point forCell:&cell];
         
-        if(index == nil){
+        if(index == nil && !self.includeNilDropIndexes){
             
             DND_LOG(@"Invalid Cell");
             
@@ -807,14 +807,14 @@
        && self.draggingView){
         
         NSIndexPath* index = [self determineIndexForContainer:self.dstView atPoint:point forCell:nil];
-        
+
         /* Catching invalid cells being dropped */
-        
-        if(index == nil){
-            
+
+        if(index == nil && !self.includeNilDropIndexes){
+
             [self snapDraggingViewBack];
             return;
-            
+
         }
 
         if(self.delegate && [self.delegate respondsToSelector:@selector(droppedOnDstAtIndexPath:fromSrcIndexPath:)]){
@@ -896,7 +896,7 @@
         
         /* Catching invalid cells being dropped */
         
-        if(index == nil){
+        if(index == nil && !self.includeNilDropIndexes){
             
             [self snapDraggingViewBack];
             return;
@@ -940,7 +940,7 @@
         
         /* Catch invalid cells */
         
-        if(index == nil){
+        if(index == nil && !self.includeNilDropIndexes){
         
             DND_LOG(@"Invalid cell");
             

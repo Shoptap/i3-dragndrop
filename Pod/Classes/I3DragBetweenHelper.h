@@ -143,6 +143,11 @@
 
 @property (nonatomic, readonly) BOOL isDraggingFromSrcCollection;
 
+/** Indicates whether drops onto the UICollectionView itself (as opposed to a
+     cell) are acceptable. If YES, dropped*AtIndexPath:from*IndexPath: methods
+     the `to` argument may be nil. If `to` is nil, then the cell was NOT dropped
+     onto a cell in the destination container. */
+@property (nonatomic) BOOL includeNilDropIndexes;
 
 /** Indicates whether the source should be rearrangeable. Does NOT
      check for the delegate's implementation of droppedOnSrcAtIndexPath:fromSrcIndexPath: 
