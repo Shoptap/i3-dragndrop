@@ -8,7 +8,7 @@
 
 #import "I3DragBetweenHelper.h"
 
-@interface I3DragBetweenHelper() <UIGestureRecognizerDelegate>
+@interface I3DragBetweenHelper()
 
 /* Redeclaration of 'private' properties */
 
@@ -96,26 +96,6 @@
 
 
 @implementation I3DragBetweenHelper
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    return YES;
-}
-
-- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return NO;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    return NO;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return YES;
-}
 
 
 -(void) reloadCellInContainer:(UIView*) view atIndexPaths:(NSArray*) paths{
@@ -1032,7 +1012,6 @@
     SEL dragSel = @selector(handlePan:);
     
     self.currentGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:dragSel];
-    self.currentGestureRecognizer.delegate = self;
     [_superview addGestureRecognizer:self.currentGestureRecognizer];
 
 }
