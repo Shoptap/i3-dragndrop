@@ -27,7 +27,12 @@
 		46EF0566184FCB8D00B597AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EF0545184FCB8D00B597AB /* UIKit.framework */; };
 		46EF056E184FCB8D00B597AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EF056C184FCB8D00B597AB /* InfoPlist.strings */; };
 		46EF0570184FCB8D00B597AB /* Test_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EF056F184FCB8D00B597AB /* Test_AppTests.m */; };
+<<<<<<< HEAD
 		46F1241C198ABDFE005E0CFC /* I3DragBetweenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1241B198ABDFE005E0CFC /* I3DragBetweenHelper.m */; };
+=======
+		C9429A0E19D209E80034D443 /* I3DragBetweenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9429A0D19D209E80034D443 /* I3DragBetweenHelper.m */; };
+		C9F4651619BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F4651519BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.m */; };
+>>>>>>> Add sample tab for dropping items onto empty VCs
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,8 @@
 		46EF056F184FCB8D00B597AB /* Test_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_AppTests.m; sourceTree = "<group>"; };
 		46F1241A198ABDFE005E0CFC /* I3DragBetweenHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = I3DragBetweenHelper.h; path = ../../Pod/Classes/I3DragBetweenHelper.h; sourceTree = "<group>"; };
 		46F1241B198ABDFE005E0CFC /* I3DragBetweenHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = I3DragBetweenHelper.m; path = ../../Pod/Classes/I3DragBetweenHelper.m; sourceTree = "<group>"; };
+		C9F4651419BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3DropToEmptyAreasViewController.h; sourceTree = "<group>"; };
+		C9F4651519BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3DropToEmptyAreasViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +124,8 @@
 				46D94781185251C500CA6DC5 /* I3UnrarranreableToRearrangeableCollectionsViewController.m */,
 				46D947831852573900CA6DC5 /* I3CollectionToRearrangeableTableViewController.h */,
 				46D947841852573900CA6DC5 /* I3CollectionToRearrangeableTableViewController.m */,
+				C9F4651419BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.h */,
+				C9F4651519BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 				46F1241C198ABDFE005E0CFC /* I3DragBetweenHelper.m in Sources */,
 				46D947851852573900CA6DC5 /* I3CollectionToRearrangeableTableViewController.m in Sources */,
 				46D9477C1850E77C00CA6DC5 /* I3UnrearrangebleTableToTableViewController.m in Sources */,
+				C9F4651619BD4A6D006D0F81 /* I3DropToEmptyAreasViewController.m in Sources */,
+				C9429A0E19D209E80034D443 /* I3DragBetweenHelper.m in Sources */,
 				46D94779184FF36D00CA6DC5 /* I32RearrangeableExchangeableTablesViewController.m in Sources */,
 				46D94782185251C500CA6DC5 /* I3UnrarranreableToRearrangeableCollectionsViewController.m in Sources */,
 				46EF0558184FCB8D00B597AB /* I32RearrangeableTablesViewController.m in Sources */,

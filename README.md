@@ -132,6 +132,15 @@ Configuration:
 - Dst cells are hidden on drag
 - If a cell from the Dst collection is dragged outside of the view it is altered and then snapped back
 
+######Example Case 8 - I3DropToEmptyAreasViewController######
+- 2 Collection Views
+- Src accepts cells from Dst
+- Dst accepts cells form Src
+- Src is rearrangeable
+- Dst is rearrangeable
+- Both collections contain 1 cell that is neither draggable nor rearrangeable
+- Cells can be dropped on empty areas of either collection view - if so, cell is inserted as first item in first section.^
+
 
 ######Production Case 1 - [Rainbit](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=783210954&mt=8)######
 
