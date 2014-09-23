@@ -198,6 +198,8 @@
 
 @property (nonatomic, weak) UIView* dstView;
 
+@property (nonatomic, weak) id<UICollectionViewDataSource> srcDelegate;
+
 /** Delegate object for the drag routing */
 
 @property (nonatomic, weak) NSObject<I3DragBetweenDelegate>* delegate;
@@ -210,7 +212,8 @@
 
 -(id) initWithSuperview:(UIView*) superview
                 srcView:(UIView*) srcView
-                dstView:(UIView*) dstView;
+                dstView:(UIView*) dstView
+            srcDelegate:(id<UICollectionViewDataSource>)srcDelegate;
 
 /* Setters */
 

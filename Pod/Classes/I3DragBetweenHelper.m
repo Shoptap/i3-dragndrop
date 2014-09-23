@@ -12,14 +12,12 @@
 
 #ifndef DND_LOG
     #ifdef DEBUG
-        #define DND_LOG(s, ...) NSLog(s, ##__VA_ARGS__)
+        #define DND_LOG(s, ...) DND_LOG(s, ##__VA_ARGS__)
     #else
         #define DND_LOG(s, ...) {}
         #warning "DND_LOG supressed."
     #endif
 #endif
-
-
 
 @interface I3DragBetweenHelper()
 
@@ -97,13 +95,11 @@
 
 -(void) reloadCellInContainer:(UIView*) view atIndexPaths:(NSArray*) paths;
 
--(UIView*) copyOfView:(UIView*) viewToCopy;
+-(UIView*) copyOfView:(UIView*) viewToCopy atIndex:(NSIndexPath*) index;
 
 -(void) showCellAtIndexPath:(NSIndexPath*) index inContainer:(UIView*) container;
 
--(void) animateDummyExchange:(UIView*) exchange
-                 inContainer:(UIView*) container
-         withCompletionBlock:(void(^)()) complete;
+-(void) animateDummyExchange:(UIView*) exchange inContainer:(UIView*) container atIndex:(NSIndexPath*) index withCompletionBlock:(void(^)()) complete;
 
 @end
 
@@ -140,17 +136,14 @@
 
 }
 
--(UIView*) copyOfView:(UIView*) viewToCopy{
+-(UIView*) copyOfView:(UIView*) viewToCopy atIndex:(NSIndexPath*) index{
     
     [viewToCopy setHidden:NO];
     
     if([viewToCopy isKindOfClass:[UICollectionViewCell class]]){
+        UICollectionViewCell *cell = [((id<UICollectionViewDataSource>)self.srcDelegate) collectionView:self.srcView cellForItemAtIndexPath:index];
 
-        [(UICollectionViewCell*)viewToCopy setHighlighted:NO];
-        
-        NSData* viewCopyData = [NSKeyedArchiver archivedDataWithRootObject:viewToCopy];
-        return [NSKeyedUnarchiver unarchiveObjectWithData:viewCopyData];
-        
+        return cell;
     }
     else if([viewToCopy isKindOfClass:[UITableViewCell class]]){
         
@@ -168,13 +161,13 @@
     
 }
 
--(void) animateDummyExchange:(UIView*) exchange inContainer:(UIView*) container withCompletionBlock:(void(^)()) complete{
+-(void) animateDummyExchange:(UIView*) exchange inContainer:(UIView*) container atIndex:(NSIndexPath*) index withCompletionBlock:(void(^)()) complete{
 
     
     /* Create another dummy view and animate the dummy views while the
         actual reloading takes place underneith */
 
-    UIView* cellDummy = [self copyOfView:exchange];
+    UIView* cellDummy = [self copyOfView:exchange atIndex:index];
     [cellDummy removeFromSuperview];
     [self.superview addSubview:cellDummy];
     
@@ -210,7 +203,8 @@
 
 -(id) initWithSuperview:(UIView*) superview
                 srcView:(UIView*) srcView
-                dstView:(UIView*) dstView{
+                dstView:(UIView*) dstView
+            srcDelegate:(id<UICollectionViewDataSource>)srcDelegate{
 
     self = [super init];
     
@@ -219,6 +213,7 @@
         self.superview = superview;
         self.dstView = dstView;
         self.srcView = srcView;
+        self.srcDelegate = srcDelegate;
         
         self.isDstRearrangeable = YES;
         self.doesDstRecieveSrc = YES;
@@ -333,13 +328,13 @@
     if([container isKindOfClass:[UICollectionView class]]){
         
         UICollectionViewCell* cell = [(UICollectionView*)container cellForItemAtIndexPath:index];
-        cellCopy = [self copyOfView:cell];
+        cellCopy = [self copyOfView:cell atIndex:index];
         
     }
     else if([container isKindOfClass:[UITableView class]]){
         
         UITableViewCell* cell = [(UITableView*)container cellForRowAtIndexPath:index];
-        cellCopy = [self copyOfView:cell];
+        cellCopy = [self copyOfView:cell atIndex:index];
         
     }
     
@@ -773,7 +768,7 @@
         
         /* Trigger a separate 'dummy' animation for the exchange */
         
-        [self animateDummyExchange:cell inContainer:self.srcView withCompletionBlock:^{
+        [self animateDummyExchange:cell inContainer:self.srcView atIndex:index withCompletionBlock:^{
             
             if(self.delegate && [self.delegate respondsToSelector:@selector(droppedOnSrcAtIndexPath:fromSrcIndexPath:)]){
                 
@@ -987,7 +982,7 @@
         
         /* Trigger a separate 'dummy' animation for the exchange */
         
-        [self animateDummyExchange:cell inContainer:self.dstView withCompletionBlock:^{
+        [self animateDummyExchange:cell inContainer:self.dstView atIndex:index  withCompletionBlock:^{
             
             if(self.delegate && [self.delegate respondsToSelector:@selector(droppedOnDstAtIndexPath:fromDstIndexPath:)]){
                 
