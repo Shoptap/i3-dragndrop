@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Rearrangeable Tables View Controller - 2 Re Tables-->
+        <!--2 Re Tables-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="I32RearrangeableTablesViewController" sceneMemberID="viewController">
@@ -30,7 +30,6 @@
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-ou-3fG">
                                 <rect key="frame" x="0.0" y="44" width="366" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="YKj-fy-GiU"/>
@@ -39,7 +38,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OHO-f4-OHC">
                                 <rect key="frame" x="392" y="44" width="376" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="gu3-fR-aYA"/>
@@ -67,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="-1122"/>
         </scene>
-        <!--Exchangeable Table Views Controller - 2 Ex Tables-->
+        <!--2 Ex Tables-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="I32ExchangeableTableViewsController" sceneMemberID="viewController">
@@ -87,7 +85,6 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5lu-d5-9Qj">
                                 <rect key="frame" x="0.0" y="44" width="384" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="uNF-QB-cH3"/>
@@ -96,7 +93,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g8k-tZ-ufI">
                                 <rect key="frame" x="410" y="44" width="358" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="l3e-FE-gRX"/>
@@ -145,7 +141,7 @@
             </objects>
             <point key="canvasLocation" x="2595" y="594"/>
         </scene>
-        <!--Rearrangeable Exchangeable Tables View Controller - 2 Ex Re Tables-->
+        <!--2 Ex Re Tables-->
         <scene sceneID="HPn-iA-Xc8">
             <objects>
                 <viewController id="GNG-79-3Yv" customClass="I32RearrangeableExchangeableTablesViewController" sceneMemberID="viewController">
@@ -165,7 +161,6 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYZ-nt-F6Z">
                                 <rect key="frame" x="0.0" y="44" width="384" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="GNG-79-3Yv" id="NND-0j-btz"/>
@@ -174,7 +169,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mx6-zX-mw4">
                                 <rect key="frame" x="410" y="44" width="358" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="GNG-79-3Yv" id="nck-lH-3AF"/>
@@ -199,7 +193,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="1840"/>
         </scene>
-        <!--Unrearrangeble Table To Table View Controller - Table to Re Table-->
+        <!--Table to Re Table-->
         <scene sceneID="C02-pT-gcy">
             <objects>
                 <viewController id="VrD-gS-yxb" customClass="I3UnrearrangebleTableToTableViewController" sceneMemberID="viewController">
@@ -219,7 +213,6 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Yy-M8-N5L">
                                 <rect key="frame" x="0.0" y="44" width="384" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="VrD-gS-yxb" id="Ht6-SI-Jyk"/>
@@ -228,7 +221,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lk1-bS-pcH">
                                 <rect key="frame" x="410" y="44" width="358" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="VrD-gS-yxb" id="2QL-Q3-ER3"/>
@@ -253,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="3356"/>
         </scene>
-        <!--Rearrangeable Tables View Controller - 2 Re Tables-->
+        <!--2 Re Tables-->
         <scene sceneID="Zi0-dY-fFf">
             <objects>
                 <viewController id="oYx-0h-fab" customClass="I32RearrangeableTablesViewController" sceneMemberID="viewController">
@@ -278,7 +270,6 @@
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2IB-BS-Nia">
                                 <rect key="frame" x="0.0" y="44" width="366" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="oYx-0h-fab" id="G8K-T5-cHz"/>
@@ -287,7 +278,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xj6-pm-mtm">
                                 <rect key="frame" x="392" y="44" width="376" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="oYx-0h-fab" id="kDL-5A-dFe"/>
@@ -315,7 +305,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="-1122"/>
         </scene>
-        <!--Rearrangeable Tables View Controller - 2 Re Tables-->
+        <!--2 Re Tables-->
         <scene sceneID="KUA-sj-VM1">
             <objects>
                 <viewController id="hi0-hp-pxi" customClass="I32RearrangeableTablesViewController" sceneMemberID="viewController">
@@ -340,7 +330,6 @@
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVD-1u-ux7">
                                 <rect key="frame" x="0.0" y="44" width="366" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hi0-hp-pxi" id="Nye-g7-pHv"/>
@@ -349,7 +338,6 @@
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DequeueReusableCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="R37-MS-IlP">
                                 <rect key="frame" x="392" y="44" width="376" height="932"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hi0-hp-pxi" id="sXn-YC-WxF"/>
@@ -377,7 +365,7 @@
             </objects>
             <point key="canvasLocation" x="4430" y="-1122"/>
         </scene>
-        <!--Exchangeable Collection Views Controller - 2 Ex Collections-->
+        <!--2 Ex Collections-->
         <scene sceneID="Pak-LS-feD">
             <objects>
                 <viewController id="hcc-og-Hvg" customClass="I32ExchangeableCollectionViewsController" sceneMemberID="viewController">
@@ -402,7 +390,6 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-qQ-ACh">
                                 <rect key="frame" x="0.0" y="44" width="781" height="512"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IuG-fj-9Io">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -427,7 +414,6 @@
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FX0-0R-YWl">
                                 <rect key="frame" x="0.0" y="564" width="781" height="428"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1E8-f8-1wY">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -471,7 +457,7 @@
             </objects>
             <point key="canvasLocation" x="3166" y="-2050"/>
         </scene>
-        <!--Unrarranreable To Rearrangeable Collections View Controller - Col 2 Re Col-->
+        <!--Col 2 Re Col-->
         <scene sceneID="cvb-w2-HaC">
             <objects>
                 <viewController id="nx2-cS-xnO" customClass="I3UnrarranreableToRearrangeableCollectionsViewController" sceneMemberID="viewController">
@@ -496,7 +482,6 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iX2-Mk-bPT">
                                 <rect key="frame" x="0.0" y="44" width="781" height="512"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="77f-WF-knU">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -521,7 +506,6 @@
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WGk-ec-L8j">
                                 <rect key="frame" x="0.0" y="564" width="781" height="428"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2kd-AE-mht">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -565,7 +549,7 @@
             </objects>
             <point key="canvasLocation" x="4210" y="-2450"/>
         </scene>
-        <!--Collection To Rearrangeable Table View Controller - Paint Me!-->
+        <!--Paint Me!-->
         <scene sceneID="ZMZ-Bq-DmC">
             <objects>
                 <viewController id="tcR-sj-l24" customClass="I3CollectionToRearrangeableTableViewController" sceneMemberID="viewController">
@@ -590,7 +574,6 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="egF-tG-Tuq">
                                 <rect key="frame" x="0.0" y="44" width="781" height="512"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dXT-UV-ivZ">
                                     <size key="itemSize" width="185" height="185"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -615,7 +598,6 @@
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CBA-TY-yKJ">
                                 <rect key="frame" x="0.0" y="564" width="768" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="tcR-sj-l24" id="59e-Za-a7D"/>

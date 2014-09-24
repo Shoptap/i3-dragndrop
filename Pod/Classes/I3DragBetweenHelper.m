@@ -27,6 +27,7 @@
 
 @property (nonatomic, readwrite, retain) NSIndexPath* draggingIndexPath;
 
+@property (nonatomic, readwrite) UIView* draggingViewPreviousSuper;
 @property (nonatomic, readwrite) CGRect draggingViewPreviousRect;
 
 @property (nonatomic, readwrite) BOOL isDraggingFromSrcCollection;
@@ -147,10 +148,10 @@
     if([viewToCopy isKindOfClass:[UICollectionViewCell class]]){
 
         [(UICollectionViewCell*)viewToCopy setHighlighted:NO];
-        
+
         NSData* viewCopyData = [NSKeyedArchiver archivedDataWithRootObject:viewToCopy];
         return [NSKeyedUnarchiver unarchiveObjectWithData:viewCopyData];
-        
+
     }
     else if([viewToCopy isKindOfClass:[UITableViewCell class]]){
         
@@ -333,13 +334,13 @@
     if([container isKindOfClass:[UICollectionView class]]){
         
         UICollectionViewCell* cell = [(UICollectionView*)container cellForItemAtIndexPath:index];
-        cellCopy = [self copyOfView:cell];
+        cellCopy = cell;
         
     }
     else if([container isKindOfClass:[UITableView class]]){
         
         UITableViewCell* cell = [(UITableView*)container cellForRowAtIndexPath:index];
-        cellCopy = [self copyOfView:cell];
+        cellCopy = cell;
         
     }
     
@@ -349,15 +350,16 @@
     
     if((container == self.srcView && self.hideSrcDraggingCell) ||
        (container == self.dstView && self.hideDstDraggingCell)){
-        
+
         cell.alpha = 0.01;
     }
-    
 
+
+    self.draggingViewPreviousSuper = cellCopy.superview;
     
     self.draggingView = cellCopy;
 
-    self.draggingViewPreviousRect = cellFrame;
+    self.draggingViewPreviousRect = cellCopy.frame;
     self.draggingIndexPath = index;
     
     
@@ -426,7 +428,7 @@
         /* Remove the dummy view from the superview. */
         
         [draggingView removeFromSuperview];
-        
+        [self.draggingViewPreviousSuper addSubview:draggingView];
     };
     
     [UIView animateWithDuration:0.2
@@ -441,15 +443,14 @@
 
 
 -(void) snapDraggingViewBack{
-    
 
     UIView* previousSuperview = self.isDraggingFromSrcCollection ? self.srcView : self.dstView;
     UIView* dragginView = self.draggingView;
     NSIndexPath* dragginIndex = self.draggingIndexPath;
-    
+
     CGRect previousGlobalRect = [self.superview convertRect:self.draggingViewPreviousRect
                                                    fromView:previousSuperview];
-    
+
     
 
     void (^completion)(BOOL finished) = ^(BOOL finished){
@@ -491,6 +492,8 @@
         }        
 
         [dragginView removeFromSuperview];
+        [self.draggingViewPreviousSuper addSubview:dragginView];
+        dragginView.frame = self.draggingViewPreviousRect;
     };
     
     
